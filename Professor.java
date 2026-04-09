@@ -1,5 +1,9 @@
 public class Professor extends Usuario{
+<<<<<<< HEAD
+    public Professor(double codigo, String nome, String email){
+=======
     public Professor(double codigo, String nome, Sring email){
+>>>>>>> f457162d99c732a012de718b38ff7cc91216eb02
         super(codigo, nome, email);
     }
 
