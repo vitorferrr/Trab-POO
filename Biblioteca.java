@@ -12,17 +12,39 @@ public class Biblioteca {
         this.emprestimos = new ArrayList<>();
     }
 
-    public void cadastrarUsuario(Usuario usuario) {
-        this.usuarios.add(usuario);
+    public static void listarUsuarios(List<Usuario> usuarios) {
+        System.out.println("--- Lista de Usuários ---");
+        for (int i = 0; i < usuarios.size(); i++) {
+            Usuario u = usuarios.get(i);
+            u.exibirResumo();
+        }
     }
 
-    public void cadastrarMaterial(Material material) {
-        this.materiais.add(material);
+    public void listarMateriais() {
+        System.out.println("--- Lista de Materiais ---");
+        for (int i = 0; i < materiais.size(); i++) {
+            Material m = materiais.get(i);
+            m.exibirResumo();
+        }
     }
 
-    public void listarUsuarios() {
-        for (Usuario u : usuarios) {
-            u.exibirDetalhes(); // Supondo que Usuario também implemente Exibivel
+    public Material buscarMaterialPorCodigo(int codigoBuscado) {
+        for (int i = 0; i < materiais.size(); i++) {
+            Material m = materiais.get(i);
+            if (m.getCodigo() == codigoBuscado) {
+                return m;
+            }
+        }
+        return null;
+    }
+
+    public void listarEmprestimosEmAndamento() {
+        for (int i = 0; i < emprestimos.size(); i++) {
+            Emprestimo e = emprestimos.get(i);
+            if (!e.verificarEmprestimoFinalizado()) {
+                System.out.println("ID: " + i + " - Detalhes: ");
+                e.exibirResumo();
+            }
         }
     }
 }

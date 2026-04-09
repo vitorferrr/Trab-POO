@@ -1,8 +1,8 @@
 public class Ebook extends Material{
     private String formato;
-    private double tamanhoArquivo;
+    private String tamanhoArquivo;
 
-    public Ebook(double codigo, String titulo, int anoPublicacao, int qntDisponivel, String formato, double tamanhoArquivo) {
+    public Ebook(double codigo, String titulo, int anoPublicacao, int qntDisponivel, String formato, String tamanhoArquivo) {
         super(codigo, titulo, anoPublicacao, qntDisponivel);
         this.formato = formato;
         this.tamanhoArquivo = tamanhoArquivo;
