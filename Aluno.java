@@ -1,5 +1,4 @@
 public class Aluno extends Usuario{
-    
     public Aluno(double codigo, String nome, String email){
         super(codigo, nome, email);
     }
@@ -16,7 +15,7 @@ public class Aluno extends Usuario{
         return 2.50;
     }
 
-    public String tipoUsuario(){
+    public void tipoUsuario(){
         System.out.println("Tipo de usuário é aluno");
     }
 }

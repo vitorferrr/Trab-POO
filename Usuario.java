@@ -35,11 +35,11 @@ public abstract class Usuario implements Exibivel{
 
     @Override
     public String exibirResumo(){
-        System.out.println("O código é: " + getCodigo() + ", o nome é: " + getNome() + ", o email é: " + getEmail());
+        return "O código é: " + getCodigo() + ", o nome é: " + getNome() + ", o email é: " + getEmail();
     }
 
     public abstract int limiteMaxEmprestimos();
     public abstract int prazoDevolucaoDias();
     public abstract double valorMultaDiaria();
-    public abstract String tipoUsuario();
+    public abstract void tipoUsuario();
 }

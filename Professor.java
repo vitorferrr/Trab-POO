@@ -15,7 +15,7 @@ public class Professor extends Usuario{
         return 1.00;
     }
 
-    public String tipoUsuario(){
+    public void tipoUsuario(){
         System.out.println("Tipo de usuário é professor");
     }
 }
