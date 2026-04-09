@@ -41,4 +41,37 @@ public abstract class Material implements Exibivel{
             return "Não temos o livro " + this.titulo + " disponível no momento!";
         }
     }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public int getQntDisponivel() {
+        return this.qntDisponivel;
+    }
+
+    public void setQntDisponivel(int qntDisponivel) {
+        this.qntDisponivel = qntDisponivel;
+    }
+
+    public int getAnoPublicacao() {
+        return this.anoPublicacao;
+    }
+
+    public void setAnoPublicacao(int anoPublicacao) {
+        this.anoPublicacao = anoPublicacao;
+    }
+
+    public double getCodigo() {
+        return this.codigo;
+    }
+
+    public void setCodigo(double codigo) {
+        this.codigo = codigo;
+    }
+
 }
