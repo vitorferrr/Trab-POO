@@ -1,16 +1,16 @@
-public class Livro extends Material{
-    private String autor;
+public class Revista extends Material{
+    private String edicao;
 
-    public Livro(double codigo, String titulo, int anoPublicacao, int qntDisponivel, String autor) {
+    public Revista(double codigo, String titulo, int anoPublicacao, int qntDisponivel, String edicao) {
         super(codigo, titulo, anoPublicacao, qntDisponivel);
-        this.autor = autor;
+        this.edicao = edicao;
     }
 
     @Override
     public void definirInformacoes(){
         System.out.println(
-            "\nTítulo do livro: " + super.getTitulo() + 
-            "\nAutor: " + this.autor + 
+            "\nTítulo da revista: " + super.getTitulo() + 
+            "\nEdição: " + this.edicao + 
             "\nAno de publicação:" + super.getAnoPublicacao() +
             "\nQuantidade disponível: " + super.getQntDisponivel() +
             "\nCódigo do livro: " + super.getCodigo());   
