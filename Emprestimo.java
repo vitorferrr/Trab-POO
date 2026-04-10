@@ -8,19 +8,18 @@ public class Emprestimo implements Exibivel, CalculavelMulta{
     private LocalDate dataEmprestimo;
     private LocalDate dataPrevistaDevolucao;
     private LocalDate dataRealDevolucao;
-    private int numeroDias;
 
     private boolean devolucao = false;
-    private boolean emprestimoFinalizado;
+    private int diasDeAtraso;
+    private double multa;
 
-
-    public void dadosEmprestimo(){
-        System.out.println("ID do empréstimo: " + idEmprestimo);
-        System.out.println("Usuário: " + usuario);
-        System.out.println("Material: " + material);
-        System.out.println("Data do empréstimo: " + dataEmprestimo);
-        System.out.println("Data prevista da devolução: " + dataPrevistaDevolucao);
-        System.out.println("Data real da devolução: " + dataRealDevolucao);
+    public String dadosEmprestimo(){
+        return "ID do empréstimo: " + idEmprestimo + 
+        "\nUsuário: " + usuario + 
+        "\nMaterial: " + material + 
+        "\nData do empréstimo: " + dataEmprestimo +
+        "\nData prevista da devolução: " + dataPrevistaDevolucao +
+        "\nData real da devolução: " + dataRealDevolucao;
     }
 
     public boolean registrarDevolucao(){
@@ -28,7 +27,7 @@ public class Emprestimo implements Exibivel, CalculavelMulta{
     }
 
     public boolean verificarEmprestimoFinalizado(){
-        if(devolucao = false){
+        if(devolucao == false){
             return false;
         }
 
@@ -36,8 +35,17 @@ public class Emprestimo implements Exibivel, CalculavelMulta{
     }
 
     public int calcularDiasDeAtraso(){
-        return numeroDias = ChronoUnit.DAYS.between(dataRealDevolucao, dataPrevistaDevolucao);
+        return diasDeAtraso = ChronoUnit.DAYS.between(dataRealDevolucao, dataPrevistaDevolucao);
     }
 
-    
+    public double calcularMulta(){
+        return multa = diasDeAtraso*usuario.valorMultaDiaria();
+    }
+
+    @Override
+    public String exibirResumo(){
+        return dadosEmprestimo() + 
+                "\nDias de atraso: " + diasDeAtraso + 
+                "\nValor da multa: " + multa;
+    }
 }
