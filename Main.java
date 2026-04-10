@@ -9,7 +9,7 @@ public class Main {
 
         Usuario a1 = new Aluno(15, "Vitor", "vitor@gmail.com");
         Usuario p1 = new Professor(91, "Joel", "joel@professor.com");
-        Material l1 = new Livro(1, "Java", 2015, 2, "Clarice");
+        Material l1 = new Livro(1, "Java", 2015, 1, "Clarice");
         Material l2 = new Livro(2, "Python", 2018, 3, "João");
         Material r1 = new Revista(3, "Revista de Java", 2020, 5, "Edição 1");
         Material e1 = new Ebook(4, "C", 2021, 3, "PDF", "2.5MB");
@@ -23,6 +23,9 @@ public class Main {
   
         imprimirUsuarios(usuarios);
         imprimirMateriais(materiais);
+
+        realizarEmprestimo(a1, l1, materiais);
+        realizarEmprestimo(p1, l1, materiais);
 
     }
 
@@ -39,6 +42,20 @@ public class Main {
         for(int i = 0; i < mat.size(); i++){
             System.out.println("Título: " + mat.get(i).getTitulo() + ", código: " + mat.get(i).getCodigo() + ", ano de publicação: " + mat.get(i).getAnoPublicacao());
             System.out.println("=========================");
+        }
+    }
+
+    public static void realizarEmprestimo(Usuario u, Material m, ArrayList<Material> materiais){
+        for(int i = 0; i < materiais.size(); i++){
+            if(m == materiais.get(i)){
+                if(materiais.get(i).getQntDisponivel() > 0){
+                    System.out.println("Empréstimo realizado com sucesso!");
+                    materiais.get(i).reduzirQuantidade();
+                }
+                else{
+                    System.out.println("Indisponível");
+                }
+            }
         }
     }
 }
