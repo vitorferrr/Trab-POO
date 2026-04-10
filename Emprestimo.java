@@ -35,7 +35,7 @@ public class Emprestimo implements Exibivel, CalculavelMulta{
     }
 
     public int calcularDiasDeAtraso(){
-        return diasDeAtraso = ChronoUnit.DAYS.between(dataRealDevolucao, dataPrevistaDevolucao);
+        return diasDeAtraso = (int) ChronoUnit.DAYS.between(dataRealDevolucao, dataPrevistaDevolucao);
     }
 
     public double calcularMulta(){
